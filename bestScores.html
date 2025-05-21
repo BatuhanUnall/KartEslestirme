@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bestScores.css"> <!--Css dosyası ekleniyor-->
+</head>
+
+<body>
+    <div class="button-container">
+        <!--İçine üç tane div ekledik. Her biri zorluk seviyelerini temsil ediyor. Class isimleri girilerek css stilleri veriliyor-->
+        <div class="button-wrapper">
+            <button class="button" onclick="seeBestTimeE()">Kolay Modda En İyi Süreyi Gör</button>
+            <!--Butona tıklama eventine fonksiyon atandı-->
+            <p id="e-best-name" style="display: none; color: blue;"></p>
+            <!--Fonksiyon çalışınca display özelliği block olacak ve görünecek-->
+            <p id="e-best-time" style="display: none; color: blue;"></p>
+        </div>
+        <div class="button-wrapper">
+            <button class="button" onclick="seeBestTimeM()">Orta Modda En İyi Süreyi Gör</button>
+            <p id="m-best-name" style="display: none; color: aliceblue;"></p>
+            <p id="m-best-time" style="display: none; color: aliceblue;"></p>
+        </div>
+        <div class="button-wrapper">
+            <button class="button" onclick="seeBestTimeH()">Zor Modda En İyi Süreyi Gör</button>
+            <p id="h-best-name" style="display: none; color: greenyellow;"></p>
+            <p id="h-best-time" style="display: none; color: greenyellow;"></p>
+        </div>
+    </div>
+
+
+    <script>
+        let ePress = 0//Yüksek skoru görmek için butona bastığında sadece bir kere yazı çıkması için kontrol değişkeni
+        let mPress = 0
+        let hPress = 0
+        function seeBestTimeE() {
+            let eBestT = document.getElementById("e-best-time") //Verilen id'ye ait elementi seçiyor
+            let eBestN = document.getElementById("e-best-name")
+            //Eğer ki oyun hiç oynanmadan veya süreyi kaydetmeden oynandığında en iyi sürelere tıklanırsa çalışacak.
+            if (ePress == 0) {//Eğer butona hiç basılmadıysa çalışacak
+                if (localStorage.getItem("easyBestTime") == null) {
+                    eBestT.innerHTML = "En İyi Süre Yok" //Elementin textini değiştirecek
+                }
+                else {
+                    let txtName = document.createTextNode(localStorage.getItem("easyBestTimeName")) //En iyi süreyi yapanın ismi localStorage ile alınıyor ve txtName isimli değişkene aktarılıyor.
+                    let txtTime = document.createTextNode(localStorage.getItem("easyBestTime") + " saniye") //En iyi süreyi yapanın süresi alınıyor ve localStorage ile txtTime a aktarılıyor. Sonuna saniye ekleniyor. Süreyi saniye cinsinden gösterecek.
+                    eBestT.appendChild(txtTime) //Süreyi eBestT'e yani p etiketine ekliyor
+                    eBestN.appendChild(txtName) //İsmi ekliyor
+                }
+                ePress = 1;//Kontrol değişkenini değiştirme
+            }
+            eBestT.style.display = "block"; //En iyi sürenin ve ismin butona tıklandıktan sonra görünür olmasını sağlıyor.
+            eBestN.style.display = "block";
+        }
+        function seeBestTimeM() {
+            let mBestT = document.getElementById("m-best-time")
+            let mBestN = document.getElementById("m-best-name")
+            if (mPress == 0) {
+                if (localStorage.getItem("mediumBestTime") == null) {
+                    mBestT.innerHTML = "En İyi Süre Yok"
+                }
+                else {
+                    let txtName = document.createTextNode(localStorage.getItem("mediumBestTimeName"))
+                    let txtTime = document.createTextNode(localStorage.getItem("mediumBestTime") + " saniye")
+                    mBestT.appendChild(txtTime)
+                    mBestN.appendChild(txtName)
+                }
+                mPress = 1
+            }
+
+            mBestT.style.display = "block";
+            mBestN.style.display = "block";
+
+        }
+        function seeBestTimeH() {
+            let hBestT = document.getElementById("h-best-time")
+            let hBestN = document.getElementById("h-best-name")
+            if (hPress == 0) {
+                if (localStorage.getItem("hardBestTime") == null) {
+                    hBestT.innerHTML = "En İyi Süre Yok"
+                }
+                else {
+                    let txtName = document.createTextNode(localStorage.getItem("hardBestTimeName"))
+                    let txtTime = document.createTextNode(localStorage.getItem("hardBestTime") + " saniye")
+                    hBestT.appendChild(txtTime)
+                    hBestN.appendChild(txtName)
+                }
+                hPress = 1
+            }
+            hBestT.style.display = "block";
+            hBestN.style.display = "block";
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    /*Kendiyle dışındaki hücrelerin arasındaki boşluğu 0 piksel yapar*/
+    padding: 0;
+    /*Kendi ve içindeki elemanlarla arasındaki boşluğu 0 piksel yapar*/
+    display: flex;
+    /*Elemanların esnek boyutlanma yapmasını sağlar.*/
+    justify-content: center;
+    /*Elemanların yatay yönde ortalar.*/
+    align-items: flex-start;
+    /* Elemanları yukarıda hizalar. */
+    height: 100vh;
+    /*Ekranın yüksekliğinin tamamını kullanır.*/
+    background: linear-gradient(to right, rgb(233, 6, 6), rgb(210, 233, 7));
+    /*Arka plan rengini geçişli olarak ayarlar.*/
+}
+
+.button-container {
+    display: flex;
+    /*Elemanların boyutu kadar yer kaplar.*/
+    justify-content: space-between;
+    /*Elemanlar arasında eşit boşluk bırakır.*/
+    width: 80%;
+    /*Kaplayabileceği genişliğin %80'ini kullanır*/
+    margin-top: 50px;
+    /* Yukarıdan boşluk verir*/
+}
+
+.button {
+    padding: 15px;
+    width: 500px;
+    /* Genişliği 500px yapar */
+    font-size: 18px;
+    /* Yazı boyutunu ayarlar */
+    background: linear-gradient(to right, yellow, red);
+    /* Geçişli arkaplan rengi */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    /*İmleç üstüne geldiğinde değişir.Tıklanabilir olduğunu gösterir*/
+}
+
+.button:hover {
+
+    background: linear-gradient(to right, #0056b3, #ff0000);
+    /*Üstüne gelince rengi değişir.*/
+}
+
+.button-wrapper {
+    margin-top: 150px;
+}
+
+p {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 100px;
+    text-align: center;
+}

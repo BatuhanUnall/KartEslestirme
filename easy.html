@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--medium.html ve hard.html dosyalarında sadece .game-board classında ufak stil farklılıkları vardır. O yüzden yorum satırları sadece bu dosyadadır.-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Matching Game</title>
+    <link rel="stylesheet" href="styles.css"> <!--css dosyasını html sayfamıza ekledik.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Bootstrap kütüphanesini ekledik.-->
+    <style>
+        /*Oyunun kolay modu için sayfanın görünümünde değişiklikler.*/
+        .game-board {
+            padding-top: 150px;
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 50px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info">
+        <div class="timer" id="timer">00:00</div> <!--Süre sayacını gösteren div-->
+        <div class="score" id="score">Eşleşmeler: 0</div> <!--Eşleşme sayısını gösteren div-->
+    </div>
+    <div class="game-board" id="gameBoard"></div> <!--Kartların bulunduğu div-->
+    <span style="width: 600px; height: 60px; font-size: 1.5em; text-align: center;" class="badge badge-primary m-5 pt-3" id="sure"></span>
+    <!--Oyun bitiminde süreyi gösteren span etiketi. Bootstrap kullanılarak badge görünümü verildi.-->
+    <div id="high-score" style="display: none;"> <!--En iyi süre yapılana kadar gözükmeyen div-->
+        Tebrikler En İyi Süreyi Elde Ettiniz!
+        <input type="text" placeholder="Sürenizi kaydetmek için isim girin." name="" class="mt-5" id="easy-best-time" style="width: 500px; height: 50px;">
+        <!--En iyi süreyi yapanın ismini girmesi için input-->
+        <button id="save-btn" class="btn btn-success mt-3 btn-lg">Kaydet</button>
+        <!--Süreyi ve ismi kaydetmek için buton-->
+    </div>
+    <script src="easy.js"></script> <!--JavaScript dosyasını ekleme-->
+</body>
+
+</html>

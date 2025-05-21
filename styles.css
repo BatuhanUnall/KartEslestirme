@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    /*Elemanların esnek boyutlanma yapmasını sağlar.*/
+    flex-direction: column;
+    /*Elemanların yukarıdan aşağıya doğru sıralanmasını sağlar.*/
+    align-items: center;
+    /*Elemanları dikey eksende ortada hizalar.*/
+    font-family: Arial, sans-serif;
+    /*Yazı tiğini değiştirir.*/
+    background-color: #f0f0f0;
+    /*Sayfanın arka plan rengini değiştirir.*/
+}
+
+h1 {
+    margin-top: 20px;
+    /*Üstteki elemanla yukardan 20px boşluk oluşturur.*/
+}
+
+.info {
+    display: flex;
+    /*Elemanların esnek boyutlanma yapmasını sağlar.*/
+    justify-content: space-between;
+    /*Elemanlarıı yatay eksende ilki solda sonuncusu sağda diğerlerini ortada yapar.*/
+    width: 50%;
+    /*Genişliği kaplayabileceği alanın %50'sini kullanır.*/
+    margin: 20px 0;
+    /*Yukardan ve aşağıdan 20 soldan sağdan 0px boşluk bırakır.*/
+}
+
+.timer,
+.score {
+    font-size: 1.5em;
+    /*Yazı boyutunu 1.5 katı yapar*/
+    color: #ff9800;
+    /*Yazı rengini değiştirir.*/
+}
+
+.game-board {
+    padding-top: 100px;
+    display: grid;
+    /*Elemanlara satır ve sütunlardan oluşmasını sağlayarak ızgara görünümü verir.*/
+    grid-template-columns: repeat(8, 100px);
+    /*8 adet sütun oluşturur ve her birini 100piksel genişliğinde yapar*/
+    grid-gap: 20px;
+    /*Satır ve sütunlar arasındaki boşlukları 20piksel yapar*/
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    /*Genişlik yükseklik ayarlama.*/
+    position: relative;
+    /*Öğe sayfa akışında kendi konumunu korur.*/
+    cursor: pointer;
+    /*İmleç üstüne geldiğinde değişir.Tıklanabilir olduğunu gösterir*/
+    transform-style: preserve-3d;
+    /*Kartlarımızın döndüğünde resimsiz kartın resimli karta dönüşmesini sağlar*/
+    transition: transform 0.5s;
+    /*Geçişin yarım saniyede tamamamlanmasını sağlar.*/
+}
+
+/*Hem card hem de flipped sınıfına sahip öğeler için*/
+.card.flipped {
+    transform: rotateY(180deg);
+    /*Öğemiz yatay düzlemde 180 derece dönmesini sağlar.*/
+}
+
+/*card sınıfına sahip bir öğenin altında front veya back sınıfına sahip öğeler için*/
+.card .front,
+.card .back {
+    position: absolute;
+    /*Öğenin belli bir konumda sabitlenmesini sağlar.*/
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /*Öğenin arkasının görünmesini engeller*/
+    border-radius: 5px;
+    /*Köşeleri 5px yuvarlar*/
+}
+
+/*Hem card hem front sınıfına sahip öğeler için*/
+.card .front {
+    background-color: #1e90ff;
+    /*Kartın arka plan rengini mavi yapar*/
+}
+
+/*Hem card hem back sınıfına sahip öğeler için*/
+.card .back {
+    background-size: cover;
+    /*Resmin arka planı tamamamen kaplamasını sağlar.*/
+    transform: rotateY(180deg);
+    /*Öğemiz yatay düzlemde 180 derece dönmesini sağlar.*/
+}

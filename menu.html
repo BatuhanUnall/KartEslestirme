@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Matching Game Menu</title>
+    <link rel="stylesheet" href="menu.css"> <!--menu.css stil dosyasını html sayfasına ekler-->
+</head>
+
+<body>
+    <div class="menu-container"><!--Menümüzü oluşturduğumuz ana div-->
+        <h1>Kart Eşi Bulma Oyunu</h1><!--Başlık-->
+        <div class="menu-buttons"><!--Menü butonları için div-->
+            <button onclick="showDifficultyMenu()">Oyna</button><!--Butona tıklandığında fonksiyon çalışacak.-->
+            <div class="difficulty-menu" id="difficultyMenu" style="display: none;">
+                <!--Zorluk seçeneklerinin olduğu div-->
+                <button onclick="startGame('easy')">Kolay</button>
+                <!--Tıklandığında zorluk seviyesini js dosyasına argüman olarak gönderen butonlar-->
+                <button onclick="startGame('medium')">Orta</button>
+                <button onclick="startGame('hard')">Zor</button>
+            </div>
+            <button onclick="showBestTimes()">En İyi Süreleri Gör</button>
+            <!--Butona tıklandığında ilgili fonksiyon çalışacak-->
+            <button onclick="showExitMenu()">Çık</button>
+            <!--Butona tıklandığında ilgili fonksiyon çalışacak-->
+            <div id="exit" style="display: none;"> <!--Çık butonuna tıklandığında emin olmak için iki buton çıkartır.-->
+                <button onclick="exitGame('yes')">Evet</button><!--js dosyasına tıklan butona göre argümanı gönderir.-->
+                <button onclick="exitGame('no')">Hayır</button>
+            </div>
+        </div>
+    </div>
+    <script src="menu.js"></script><!--menu.js isimli javascript dosyasını sayfaya ekler.-->
+</body>
+
+</html>

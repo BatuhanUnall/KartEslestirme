@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    /*Elemanların esnek boyutlanma yapmasını sağlar.*/
+    justify-content: center;
+    /*Elemanların yatay yönde ortalar.*/
+    align-items: center;
+    /*Elemanları dikey eksende ortada hizalar.*/
+    height: 100vh;
+    /*Ekranın yüksekliğinin tamamını kullanır.*/
+    margin: 0;
+    /*Kendiyle dışındaki hücrelerin arasındaki boşluğu 0 piksel yapar*/
+    background-color: #ffeb3b;
+    /* Sarı arka plan rengi verir. */
+    font-family: Arial, sans-serif;
+    /*Yazı tipini değiştirir.*/
+}
+
+.menu-container {
+    text-align: center;
+    /*Yazıları ortalar*/
+}
+
+h1 {
+    color: #ff9800;
+    /* Yazıları turuncu yapar*/
+    margin-bottom: 50px;
+    /*Altındaki elemanla arasına aşağıdan 20px boşluk oluşturur.*/
+}
+
+.menu-buttons {
+    display: flex;
+    /*Elemanların esnek boyutlanma yapmasını sağlar.*/
+    flex-direction: column;
+    /*Elemanların yukarıdan aşağıya doğru sıralanmasını sağlar.*/
+    gap: 20px;
+    /* Öğeler arasında 20 piksel boşluk bırakır */
+}
+
+button {
+    padding: 15px 30px;
+    /*Öğenin içindeki elemanlarla arasına aşağıdan ve yukarıdan 15px, sağdan ve soldan 30px boşluk ekler.*/
+    font-size: 1.2em;
+    /*Yazı boyutunu %20 arttırır*/
+    color: #ff9800;
+    /*Yazıları turuncu yapar */
+    background-color: #fff;
+    /*Arka plan rengini beyaz yapar*/
+    border: 2px solid #ff9800;
+    /*Çerçeve ekler*/
+    border-radius: 5px;
+    /*Çerçevenin köşelerini 5piksel yuvarlar*/
+    cursor: pointer;
+    /*İmleç üstüne geldiğinde değişir.Tıklanabilir olduğunu gösterir*/
+    transition: background-color 0.3s, color 0.3s;
+    /*Öğenin arka plan rengi veya yazı rengi değiştiğinde bunu 0.3 saniyede yapar.*/
+}
+
+button:hover {
+    background-color: #ff9800;
+    /*Arka plan rengini turuncu yapar*/
+    color: #fff;
+    /*Yazı rengini beyaz yapar*/
+}
